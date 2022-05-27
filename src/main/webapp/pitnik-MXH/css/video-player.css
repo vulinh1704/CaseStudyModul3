@@ -13,8 +13,8 @@ e.g. <video class="video-js my-skin-name">
 @font-face {
   font-family: 'VideoJS';
   src: url(../fonts/VideoJS.eot);
-  src: url(../fonts/VideoJS.eot) format('embedded-opentype'), 
-  	   url(../fonts/VideoJS.woff) format('woff'), 
+  src: url(../fonts/VideoJS.eot) format('embedded-opentype'),
+  	   url(../fonts/VideoJS.woff) format('woff'),
 	   url(../fonts/VideoJS.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
