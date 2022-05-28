@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface Service<T>{
     void add(T t) throws SQLException;
-    T findById(int id);
+    T findById(int id) throws SQLException;
     List<T> findAll();
     boolean delete(int id);
     boolean edit(T t);

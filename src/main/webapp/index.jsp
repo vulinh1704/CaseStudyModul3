@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  <h1><a href="/users?action=register"> Nhấn vào </a></h1>
+  <h1><a href="/users?action=login"> Nhấn vào </a></h1>
   </body>
 </html>

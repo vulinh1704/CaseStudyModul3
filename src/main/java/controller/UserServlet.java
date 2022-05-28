@@ -1,7 +1,6 @@
 package controller;
 
 import model.User;
-import service.Service;
 import service.impl.UserServiceImpl;
 
 import javax.servlet.*;
@@ -24,13 +23,21 @@ public class UserServlet extends HttpServlet {
             case "register":
                 showFormRegister(request, response);
                 break;
+            case "login":
+                showFormLogin(request , response);
+                break;
             default:
-                showFormRegister(request, response);
+                showFormLogin(request , response);
         }
     }
 
+    private void showFormLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/login.jsp");
+        requestDispatcher.forward(request, response);
+    }
+
     private void showFormRegister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("pitnik-MXH/register.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/register.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -52,11 +59,12 @@ public class UserServlet extends HttpServlet {
 
     }
 
-    private void registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    private void registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         String account = request.getParameter("account");
         String passWord = request.getParameter("passWord");
         String fullName = request.getParameter("fullName");
         String dateOfBirth = request.getParameter("dateOfBirth");
         userService.add(new User(account, passWord, fullName, dateOfBirth));
+
     }
 }

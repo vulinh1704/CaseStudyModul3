@@ -3,10 +3,7 @@ package service.impl;
 import model.User;
 import service.Service;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +34,20 @@ public class UserServiceImpl implements Service<User> {
     }
 
     @Override
-    public User findById(int id) {
+    public User findById(int id) throws SQLException {
+        User user = null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("select account,passWord,fullName,dateOfBirth from user where id = ?");) {
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String account = rs.getString("account");
+                String passWord = rs.getString("passWord");
+                String fullName = rs.getString("fullName");
+                String dateOfBirth = rs.getString("dateOfBirth");
+                user = new User(account, passWord, fullName, dateOfBirth);
+            }
+        }
         return null;
     }
 
@@ -54,5 +64,23 @@ public class UserServiceImpl implements Service<User> {
     @Override
     public boolean edit(User user) {
         return false;
+    }
+
+    public User findByNameAndPass(String account, String passWord) throws SQLException {
+        User user = null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("select account,passWord,fullName,dateOfBirth from user where account like ? and passWord like ?");) {
+            preparedStatement.setString(1, account);
+            preparedStatement.setString(2, passWord);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String acc = rs.getString("account");
+                String pass = rs.getString("passWord");
+                String fullName = rs.getString("fullName");
+                String dateOfBirth = rs.getString("dateOfBirth");
+                user = new User(acc, pass, fullName, dateOfBirth);
+            }
+        }
+        return user;
     }
 }
