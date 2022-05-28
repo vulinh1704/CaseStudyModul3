@@ -23,13 +23,11 @@ public class UserServlet extends HttpServlet {
             case "register":
                 showFormRegister(request, response);
                 break;
-            case "login":
-                showFormLogin(request , response);
-                break;
             default:
                 showFormLogin(request , response);
         }
     }
+
 
     private void showFormLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/login.jsp");
@@ -43,6 +41,7 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         String action = request.getParameter("action");
         if(action == null){
             action = "";
@@ -57,7 +56,7 @@ public class UserServlet extends HttpServlet {
                 break;
             case "login":
                 try {
-                    loginUser(request , response);
+                    loginUser(request , response , session);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -66,14 +65,15 @@ public class UserServlet extends HttpServlet {
 
     }
 
-    private void loginUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+    private void loginUser(HttpServletRequest request, HttpServletResponse response , HttpSession session) throws SQLException, IOException {
         String account = request.getParameter("account");
         String passWord = request.getParameter("passWord");
         User user = userService.findByNameAndPass(account , passWord);
         if(user == null){
             response.sendRedirect("user/login.jsp");
         } else {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("page/homepage.jsp");
+            session.setAttribute("fullName" , user.getFullName());
         }
     }
 
