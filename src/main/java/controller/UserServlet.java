@@ -55,8 +55,26 @@ public class UserServlet extends HttpServlet {
                     e.printStackTrace();
                 }
                 break;
+            case "login":
+                try {
+                    loginUser(request , response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
         }
 
+    }
+
+    private void loginUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+        String account = request.getParameter("account");
+        String passWord = request.getParameter("passWord");
+        User user = userService.findByNameAndPass(account , passWord);
+        if(user == null){
+            response.sendRedirect("user/login.jsp");
+        } else {
+            response.sendRedirect("index.jsp");
+        }
     }
 
     private void registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
@@ -67,4 +85,6 @@ public class UserServlet extends HttpServlet {
         userService.add(new User(account, passWord, fullName, dateOfBirth));
 
     }
+
+
 }

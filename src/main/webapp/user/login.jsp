@@ -85,8 +85,8 @@
                                 <span>sign in now and meet the awesome Friends around the world.</span>
                             </div>
                             <form class="we-form" method="post">
-                                <input type="text" placeholder="Account">
-                                <input type="password" placeholder="Password">
+                                <input type="text" name="account" placeholder="Account">
+                                <input type="password" name="passWord" placeholder="Password">
                                 <input type="checkbox"><label>remember me</label>
                                 <button type="submit" data-ripple="">sign in</button>
                                 <a class="forgot underline" href="#" title="">forgot password?</a>
@@ -95,14 +95,13 @@
                             <a class="with-smedia twitter" href="#" title="" data-ripple=""><i class="fa fa-twitter"></i></a>
                             <a class="with-smedia instagram" href="#" title="" data-ripple=""><i class="fa fa-instagram"></i></a>
                             <a class="with-smedia google" href="#" title="" data-ripple=""><i class="fa fa-google-plus"></i></a>
-                            <span>don't have an account? <a class="we-account underline" href="#" title="">register now</a></span>
+                            <span>don't have an account? <a class="we-account underline" href="/users?action=register" title="">register now</a></span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 </div>
 
 <script src="../js/main.min.js"></script>
