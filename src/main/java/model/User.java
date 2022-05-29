@@ -29,6 +29,21 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public User(int id, String account, String password, String fullName, String dateOfBirth) {
+        this.id = id;
+        this.account = account;
+        this.password = password;
+        this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public User(int id, String acc, String fullName, String dateOfBirth) {
+        this.id = id;
+        this.account = acc;
+        this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
+    }
+
     public int getId() {
         return id;
     }

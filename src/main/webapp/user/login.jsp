@@ -88,8 +88,8 @@
                                 <input type="text" name="account" placeholder="Account">
                                 <input type="password" name="passWord" placeholder="Password">
                                 <input type="checkbox"><label>remember me</label>
-                                <button type="submit" data-ripple="">sign in</button>
-                                <a class="forgot underline" href="#" title="">forgot password?</a>
+                                <button type="submit" data-ripple="" >sign in</button>
+                                <a class="forgot underline"  title="">forgot password?</a>
                             </form>
                             <a class="with-smedia facebook" href="#" title="" data-ripple=""><i class="fa fa-facebook"></i></a>
                             <a class="with-smedia twitter" href="#" title="" data-ripple=""><i class="fa fa-twitter"></i></a>

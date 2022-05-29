@@ -11,7 +11,8 @@ import java.sql.SQLException;
 
 @WebServlet(name = "UserServlet", urlPatterns = "/users")
 public class UserServlet extends HttpServlet {
-    UserServiceImpl userService = new UserServiceImpl();
+    static UserServiceImpl userService = new UserServiceImpl();
+    static int idUser = 0;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,6 +23,9 @@ public class UserServlet extends HttpServlet {
         switch (action) {
             case "register":
                 showFormRegister(request, response);
+                break;
+            case "homepage":
+                showFormHomepage(request,response);
                 break;
             default:
                 showFormLogin(request , response);
@@ -36,6 +40,11 @@ public class UserServlet extends HttpServlet {
 
     private void showFormRegister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/register.jsp");
+        requestDispatcher.forward(request, response);
+    }
+
+    private void showFormHomepage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/homepage.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -65,15 +74,16 @@ public class UserServlet extends HttpServlet {
 
     }
 
-    private void loginUser(HttpServletRequest request, HttpServletResponse response , HttpSession session) throws SQLException, IOException {
+   public static void loginUser(HttpServletRequest request, HttpServletResponse response , HttpSession session) throws SQLException, IOException {
         String account = request.getParameter("account");
         String passWord = request.getParameter("passWord");
         User user = userService.findByNameAndPass(account , passWord);
         if(user == null){
             response.sendRedirect("user/login.jsp");
         } else {
-            response.sendRedirect("page/homepage.jsp");
             session.setAttribute("fullName" , user.getFullName());
+            idUser = user.getId();
+            response.sendRedirect("/users?action=homepage&idUser="+idUser);
         }
     }
 

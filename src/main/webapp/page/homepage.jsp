@@ -106,7 +106,7 @@
                         <li><a href="../pitnik-MXH/timeline-photos.html" title="">Timeline Photos</a></li>
                         <li><a href="../pitnik-MXH/timeline-videos.html" title="">Timeline Videos</a></li>
                         <li><a href="../pitnik-MXH/timeline-groups.html" title="">Timeline Groups</a></li>
-                        <li><a href="../pitnik-MXH/timeline-friends.html" title="">Timeline Friends</a></li>
+                        <li><a href="../timeline-friends.html" title="">Timeline Friends</a></li>
                         <li><a href="../pitnik-MXH/timeline-friends2.html" title="">Timeline Friends-2</a></li>
                         <li><a href="../about.html" title="">Timeline About</a></li>
                         <li><a href="../pitnik-MXH/blog-posts.html" title="">Timeline Blog</a></li>
@@ -149,7 +149,7 @@
                 </li>
                 <li><span>Account Setting</span>
                     <ul>
-                        <li><a href="../pitnik-MXH/setting.html" title="">Setting</a></li>
+                        <li><a href="../setting.html" title="">Setting</a></li>
                         <li><a href="../pitnik-MXH/privacy.html" title="">Privacy</a></li>
                         <li><a href="../pitnik-MXH/support-and-help.html" title="">Support & Help</a></li>
                         <li><a href="../pitnik-MXH/support-and-help-detail.html" title="">Support Detail</a></li>
@@ -258,8 +258,8 @@
 			    </span>
             </div>
             <div class="top-search">
-                <form method="post" class="">
-                    <input type="text" placeholder="Search People, Pages, Groups etc">
+                <form method="post" action="/PersonalPageServlet" class="">
+                    <input type="text" name="account" placeholder="Search People, Pages, Groups etc">
                     <button data-ripple><i class="ti-search"></i></button>
                 </form>
             </div>
@@ -815,21 +815,10 @@
                 <img src="../images/resources/admin.jpg" alt="">
                 <span class="status f-online"></span>
                 <div class="user-setting">
-                    <span class="seting-title">Chat setting <a href="#" title="">see all</a></span>
-                    <ul class="chat-setting"
-                        <li><a href="#" title=""><span class="status f-online"></span>online</a></li>
-                        <li><a href="#" title=""><span class="status f-away"></span>away</a></li>
-                        <li><a href="#" title=""><span class="status f-off"></span>offline</a></li>
-                    </ul>
                     <span class="seting-title">User setting <a href="#" title="">see all</a></span>
                     <ul class="log-out">
-                        <li><a href="../about.html" title=""><i class="ti-user"></i> view profile</a></li>
-                        <li><a href="../pitnik-MXH/setting.html" title=""><i class="ti-pencil-alt"></i>edit profile</a>
-                        </li>
-                        <li><a href="#" title=""><i class="ti-target"></i>activity log</a></li>
-                        <li><a href="../pitnik-MXH/setting.html" title=""><i class="ti-settings"></i>account setting</a>
-                        </li>
-                        <li><a href="../pitnik-MXH/logout.html" title=""><i class="ti-power-off"></i>log out</a></li>
+                        <li><a href="page/personalPage.jsp" title=""><i class="ti-user"></i> view profile</a></li>
+                        <li><a href="..x/pitnik-MXH/logout.html" title=""><i class="ti-power-off"></i>log out</a></li>
                     </ul>
                 </div>
             </div>
@@ -887,7 +876,7 @@
                         <li><a href="../pitnik-MXH/timeline-photos.html" title="">Timeline Photos</a></li>
                         <li><a href="../pitnik-MXH/timeline-videos.html" title="">Timeline Videos</a></li>
                         <li><a href="../pitnik-MXH/timeline-groups.html" title="">Timeline Groups</a></li>
-                        <li><a href="../pitnik-MXH/timeline-friends.html" title="">Timeline Friends</a></li>
+                        <li><a href="../timeline-friends.html" title="">Timeline Friends</a></li>
                         <li><a href="../pitnik-MXH/timeline-friends2.html" title="">Timeline Friends-2</a></li>
                         <li><a href="../about.html" title="">Timeline About</a></li>
                         <li><a href="../pitnik-MXH/blog-posts.html" title="">Timeline Blog</a></li>
@@ -930,7 +919,7 @@
                 </li>
                 <li><a class="" href="#" title=""><i class="fa fa-gears"></i> Account Setting</a>
                     <ul>
-                        <li><a href="../pitnik-MXH/setting.html" title="">Setting</a></li>
+                        <li><a href="../setting.html" title="">Setting</a></li>
                         <li><a href="../pitnik-MXH/privacy.html" title="">Privacy</a></li>
                         <li><a href="../pitnik-MXH/support-and-help.html" title="">Support & Help</a></li>
                         <li><a href="../pitnik-MXH/support-and-help-detail.html" title="">Support Detail</a></li>
@@ -1129,7 +1118,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../pitnik-MXH/timeline-friends.html" title="Friends" data-toggle="tooltip"
+                    <a href="../timeline-friends.html" title="Friends" data-toggle="tooltip"
                        data-placement="right">
                         <i class="ti-user"></i>
                     </a>
@@ -1230,7 +1219,7 @@
                         <li><a href="../pitnik-MXH/timeline-photos.html" title="">Timeline Photos</a></li>
                         <li><a href="../pitnik-MXH/timeline-videos.html" title="">Timeline Videos</a></li>
                         <li><a href="../pitnik-MXH/timeline-groups.html" title="">Timeline Groups</a></li>
-                        <li><a href="../pitnik-MXH/timeline-friends.html" title="">Timeline Friends</a></li>
+                        <li><a href="../timeline-friends.html" title="">Timeline Friends</a></li>
                         <li><a href="../pitnik-MXH/timeline-friends2.html" title="">Timeline Friends-2</a></li>
                         <li><a href="../about.html" title="">Timeline About</a></li>
                         <li><a href="../pitnik-MXH/blog-posts.html" title="">Timeline Blog</a></li>
@@ -1276,7 +1265,7 @@
                 <li class="menu-item-has-children"><a class="" href="#" title=""><i class="fa fa-gears"></i>Account
                     Setting</a>
                     <ul class="submenu">
-                        <li><a href="../pitnik-MXH/setting.html" title="">Setting</a></li>
+                        <li><a href="../setting.html" title="">Setting</a></li>
                         <li><a href="../pitnik-MXH/privacy.html" title="">Privacy</a></li>
                         <li><a href="../pitnik-MXH/support-and-help.html" title="">Support & Help</a></li>
                         <li><a href="../pitnik-MXH/support-and-help-detail.html" title="">Support Detail</a></li>
@@ -1456,7 +1445,7 @@
                                             </li>
                                             <li>
                                                 <i class="ti-user"></i>
-                                                <a href="../pitnik-MXH/timeline-friends.html" title="">friends</a>
+                                                <a href="../timeline-friends.html" title="">friends</a>
                                             </li>
                                             <li>
                                                 <i class="ti-image"></i>
@@ -1567,13 +1556,10 @@
                                         <figure>
                                             <img src="../images/resources/admin.jpg" alt="">
                                         </figure>
+                                        <form method="post" action="${pageContext.request.contextPath}/PostServlet" enctype="multipart/form-data">
                                         <div class="newpst-input">
-                                            <form method="post">
-                                                <textarea rows="2"
-                                                          placeholder="Share some what you are thinking?"></textarea>
-                                            </form>
+                                            <textarea rows="2" name="content" placeholder="Share some what you are thinking?"></textarea>
                                         </div>
-                                        <form method="post" action="/PostServlet" enctype="multipart/form-data">
                                         <div class="attachments">
                                             <ul>
                                                 <li>
@@ -1608,12 +1594,12 @@
                                                     </label>
                                                 </li>
                                                 <li class="preview-btn">
-                                                    <button class="post-btn-preview" type="submit" data-ripple="" value="Upload">
+                                                    <button class="post-btn-preview" type="submit" data-ripple="" >
                                                         Preview
                                                     </button>
                                                 </li>
                                             </ul>
-                                            <button class="post-btn" type="submit" data-ripple="">Post</button>
+                                            <button class="post-btn" type="submit" data-ripple="" value="Upload">Post</button>
                                         </div>
                                     </form>
                                         <div class="add-location-post">

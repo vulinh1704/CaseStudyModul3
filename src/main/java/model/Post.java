@@ -4,7 +4,7 @@ public class Post {
     private int id;
     private int userId;
     private int idComment;
-    private int timePost;
+    private String timePost;
     private int likeCount;
     private String accessModifier;
     private String img;
@@ -13,13 +13,19 @@ public class Post {
     public Post() {
     }
 
-    public Post(int id, int userId, int idComment, int timePost, int likeCount, String accessModifier, String img, String content) {
-        this.id = id;
+    public Post( int userId, int idComment, String timePost, int likeCount, String accessModifier, String img, String content) {
         this.userId = userId;
         this.idComment = idComment;
         this.timePost = timePost;
         this.likeCount = likeCount;
         this.accessModifier = accessModifier;
+        this.img = img;
+        this.content = content;
+    }
+
+    public Post(int userId, String timePost, String img, String content) {
+        this.userId = userId;
+        this.timePost = timePost;
         this.img = img;
         this.content = content;
     }
@@ -48,11 +54,11 @@ public class Post {
         this.idComment = idComment;
     }
 
-    public int getTimePost() {
+    public String getTimePost() {
         return timePost;
     }
 
-    public void setTimePost(int timePost) {
+    public void setTimePost(String timePost) {
         this.timePost = timePost;
     }
 

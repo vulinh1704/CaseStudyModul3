@@ -69,18 +69,37 @@ public class UserServiceImpl implements Service<User> {
     public User findByNameAndPass(String account, String passWord) throws SQLException {
         User user = null;
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("select account,passWord,fullName,dateOfBirth from user where account like ? and passWord like ?");) {
+             PreparedStatement preparedStatement = connection.prepareStatement("select id,account,passWord,fullName,dateOfBirth from user where account like ? and passWord like ?");) {
             preparedStatement.setString(1, account);
             preparedStatement.setString(2, passWord);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
+                int id = rs.getInt("id");
                 String acc = rs.getString("account");
                 String pass = rs.getString("passWord");
                 String fullName = rs.getString("fullName");
                 String dateOfBirth = rs.getString("dateOfBirth");
-                user = new User(acc, pass, fullName, dateOfBirth);
+                user = new User(id , acc, pass, fullName, dateOfBirth);
             }
         }
         return user;
     }
+
+    public User findByName(String account) throws SQLException {
+        User user = null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("select id,account,passWord,fullName,dateOfBirth from user where account like ?");) {
+            preparedStatement.setString(1, account);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String acc = rs.getString("account");
+                String fullName = rs.getString("fullName");
+                String dateOfBirth = rs.getString("dateOfBirth");
+                user = new User(id , acc, fullName, dateOfBirth);
+            }
+        }
+        return user;
+    }
+
 }
