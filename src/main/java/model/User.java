@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class User {
     private int id;
@@ -9,7 +10,7 @@ public class User {
     private String fullName;
     private String img;
     private String dateOfBirth;
-
+    List<User> friendList;
     public User() {
     }
 
@@ -18,6 +19,15 @@ public class User {
         this.password = password;
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public User(int id, String account, String fullName, String img, String dateOfBirth, List<User> friendList) {
+        this.id = id;
+        this.account = account;
+        this.fullName = fullName;
+        this.img = img;
+        this.dateOfBirth = dateOfBirth;
+        this.friendList = friendList;
     }
 
     public User(int id, String account, String password, String fullName, String img, String dateOfBirth) {
@@ -90,5 +100,13 @@ public class User {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public List<User> getFriendList() {
+        return friendList;
+    }
+
+    public void setFriendList(List<User> friendList) {
+        this.friendList = friendList;
     }
 }

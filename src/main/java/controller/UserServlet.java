@@ -52,9 +52,12 @@ public class UserServlet extends HttpServlet {
     }
 
     private void showFormHomepage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/homepage.jsp");
         List<Post> postList = postService.findAll();
-        request.setAttribute("postList" , postList);
+        List<User> userListRequest = userService.requestList(idUser);
+        session.setAttribute("userListRequest" , userListRequest);
+        session.setAttribute("postList" , postList);
         requestDispatcher.forward(request, response);
     }
 

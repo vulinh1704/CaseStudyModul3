@@ -22,15 +22,14 @@ public class AddFriendServlet extends HttpServlet {
                 break;
         }
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
-    private void addFriend(HttpServletRequest request, HttpServletResponse response) {
+    private void addFriend(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int idUser1 = UserServlet.idUser;
         int idUser2 = PersonalPageServlet.userSearch.getId();
         userService.addFriends(idUser1 , idUser2);
+        response.sendRedirect("/users?action=homepage&idUser="+ UserServlet.idUser);
     }
 }

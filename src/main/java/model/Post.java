@@ -53,6 +53,13 @@ public class Post {
         this.img = img;
         this.content = content;
     }
+    public  Post(int idUser,String timePost,int likeCount , String img, String content){
+        this.userId = idUser;
+        this.timePost = timePost;
+        this.likeCount = likeCount;
+        this.content = content;
+        this.img = img;
+    }
 
     public model.User getUser() {
         return User;

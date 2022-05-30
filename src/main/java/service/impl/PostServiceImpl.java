@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PostServiceImpl implements Service<Post> {
-    List<Post> postList = new ArrayList<>();
     UserServiceImpl userService = new UserServiceImpl();
     protected Connection getConnection() {
         Connection connection = null;
@@ -41,8 +40,9 @@ public class PostServiceImpl implements Service<Post> {
 
     @Override
     public List<Post> findAll() {
+        List<Post> postList = new ArrayList<>();
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("select * from post ");) {
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from post order by id desc");) {
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -63,7 +63,31 @@ public class PostServiceImpl implements Service<Post> {
         }
         return postList;
     }
+    public int showLike(int idPost){
+        int likeCount = 0;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("select likeCount from post where id = ?");) {
+            preparedStatement.setInt(1, idPost);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+               likeCount = rs.getInt("likeCount");
+            }
+        } catch (SQLException e) {
 
+        }
+        return likeCount;
+    }
+    public void addLike(int likeCount , int idPost){
+        likeCount = likeCount + 1;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("update post set likeCount = ? where id = ?");) {
+            preparedStatement.setInt(1,likeCount);
+            preparedStatement.setInt(2,idPost);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+
+        }
+    }
     @Override
     public boolean delete(int id) {
         return false;

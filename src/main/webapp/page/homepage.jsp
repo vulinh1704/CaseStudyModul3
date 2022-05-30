@@ -276,16 +276,16 @@
                     </a>
                     <div class="dropdowns">
                         <span>5 New Requests <a href="#" title="">View all Requests</a></span>
-                        <ul class="drops-menu">
+                        <c:forEach var="user" items="${userListRequest}">
+                            <ul class="drops-menu">
                             <li>
                                 <div>
                                     <figure>
                                         <img src="../images/resources/thumb-2.jpg" alt="">
                                     </figure>
                                     <div class="mesg-meta">
-                                        <h6><a href="#" title="">Loren</a></h6>
-                                        <span><b>Amy</b> is mutule friend</span>
-                                        <i>yesterday</i>
+                                        <h6><a href="#" title="">${user.getFullName()}</a></h6>
+                                        <span><b>${user.getFullName()}</b> is mutule friend</span>
                                     </div>
                                     <div class="add-del-friends">
                                         <a href="#" title=""><i class="fa fa-heart"></i></a>
@@ -293,71 +293,8 @@
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div>
-                                    <figure>
-                                        <img src="../images/resources/thumb-3.jpg" alt="">
-                                    </figure>
-                                    <div class="mesg-meta">
-                                        <h6><a href="#" title="">Tina Trump</a></h6>
-                                        <span><b>Simson</b> is mutule friend</span>
-                                        <i>2 days ago</i>
-                                    </div>
-                                    <div class="add-del-friends">
-                                        <a href="#" title=""><i class="fa fa-heart"></i></a>
-                                        <a href="#" title=""><i class="fa fa-trash"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <figure>
-                                        <img src="../images/resources/thumb-4.jpg" alt="">
-                                    </figure>
-                                    <div class="mesg-meta">
-                                        <h6><a href="#" title="">Andrew</a></h6>
-                                        <span><b>Bikra</b> is mutule friend</span>
-                                        <i>4 hours ago</i>
-                                    </div>
-                                    <div class="add-del-friends">
-                                        <a href="#" title=""><i class="fa fa-heart"></i></a>
-                                        <a href="#" title=""><i class="fa fa-trash"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <figure>
-                                        <img src="../images/resources/thumb-5.jpg" alt="">
-                                    </figure>
-                                    <div class="mesg-meta">
-                                        <h6><a href="#" title="">Dasha</a></h6>
-                                        <span><b>Sarah</b> is mutule friend</span>
-                                        <i>9 hours ago</i>
-                                    </div>
-                                    <div class="add-del-friends">
-                                        <a href="#" title=""><i class="fa fa-heart"></i></a>
-                                        <a href="#" title=""><i class="fa fa-trash"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <figure>
-                                        <img src="../images/resources/thumb-1.jpg" alt="">
-                                    </figure>
-                                    <div class="mesg-meta">
-                                        <h6><a href="#" title="">Emily</a></h6>
-                                        <span><b>Amy</b> is mutule friend</span>
-                                        <i>4 hours ago</i>
-                                    </div>
-                                    <div class="add-del-friends">
-                                        <a href="#" title=""><i class="fa fa-heart"></i></a>
-                                        <a href="#" title=""><i class="fa fa-trash"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                            </ul>
+                        </c:forEach>
                         <a href="friend-requests.html" title="" class="more-mesg">View All</a>
                     </div>
                 </li>
@@ -1824,9 +1761,9 @@
                                                             <li>
                                                                 <div class="likes heart" title="Like/Dislike">
                                                                     <ul class="like-dislike">
-                                                                    <li><a class="bg-blue" href="#" title="Like Post"><i class="ti-thumb-up"></i></a></li><br/>
+                                                                    <li><a class="bg-blue" href="/PostServlet?action=like&id=${post.getId()}" title="Like Post"><i class="ti-thumb-up"></i></a></li><br/>
                                                                     <li><a class="bg-red" href="#" title="dislike Post"><i class="ti-thumb-down"></i></a></li>
-                                                                    <li><span>2K</span></li>
+                                                                    <li><span>${post.getLikeCount()+1}</span></li>
                                                                     </ul>
                                                                 </div>
                                                             </li>

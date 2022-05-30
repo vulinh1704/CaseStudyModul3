@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 @WebServlet("/PostServlet")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
@@ -22,11 +23,27 @@ public class PostServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("upload.jsp").forward(request, response);
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "like":
+                countLike(request , response);
+                break;
+            default:
+                request.getRequestDispatcher("upload.jsp").forward(request, response);
+        }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        addPost(request ,response);
+    }
+
+    private void addPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String fileName = request.getParameter("fileName");
         for (Part part : request.getParts()) {
             part.write(this.getFolderUpload().getAbsolutePath() + File.separator + fileName);
@@ -40,20 +57,17 @@ public class PostServlet extends HttpServlet {
         Post post = new Post(idUser, timePost, fileName, content);
         try {
             postService.add(post);
+            response.sendRedirect("/users?action=homepage&idUser=" + UserServlet.idUser);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private String extractFileName(Part part) {
-        String contentDisp = part.getHeader("content-disposition");
-        String[] items = contentDisp.split(";");
-        for (String s : items) {
-            if (s.trim().startsWith("filename")) {
-                return s.substring(s.indexOf("=") + 2, s.length() - 1);
-            }
-        }
-        return "";
+    private void countLike(HttpServletRequest request , HttpServletResponse response) throws IOException, ServletException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        int likeCount = postService.showLike(id);
+        postService.addLike(likeCount, id);
+        response.sendRedirect("/users?action=homepage&idUser=" + UserServlet.idUser);
     }
 
     public File getFolderUpload() {

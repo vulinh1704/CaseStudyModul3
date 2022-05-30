@@ -105,11 +105,29 @@ public class UserServiceImpl implements Service<User> {
     public void addFriends(int idUser1 , int idUser2) {
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("insert into friendship(idUser1,idUser2) values (?,?)");) {
-            preparedStatement.setInt(1, idUser1);
-            preparedStatement.setInt(2, idUser2);
+            preparedStatement.setInt(1, idUser2);
+            preparedStatement.setInt(2, idUser1);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public List<User> requestList(int idUser1){
+        List<User> userList = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from friendship where idUser1 = ? and status = 0");) {
+            preparedStatement.setInt(1, idUser1);
+            ResultSet rs = preparedStatement.executeQuery();
+            int id = 0;
+            int idUser2 = 0;
+            while (rs.next()) {
+                id = rs.getInt("id");
+                idUser2 = rs.getInt("idUser2");
+                userList.add(findById(idUser2));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userList;
     }
 }
