@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet("/PostServlet")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
@@ -26,13 +27,16 @@ public class PostServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String fileName = request.getParameter("fileName");;
+        String fileName = request.getParameter("fileName");
         for (Part part : request.getParts()) {
             part.write(this.getFolderUpload().getAbsolutePath() + File.separator + fileName);
         }
         int idUser = UserServlet.idUser;
         String content = request.getParameter("content");
-        String timePost = String.valueOf(LocalDateTime.now());
+        LocalDateTime time = LocalDateTime.now();
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        String timePost = time.format(fmt);
+        fileName = "uploads/" + fileName;
         Post post = new Post(idUser, timePost, fileName, content);
         try {
             postService.add(post);

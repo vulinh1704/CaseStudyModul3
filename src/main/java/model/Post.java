@@ -9,11 +9,35 @@ public class Post {
     private String accessModifier;
     private String img;
     private String content;
+    private User User;
 
     public Post() {
     }
 
-    public Post( int userId, int idComment, String timePost, int likeCount, String accessModifier, String img, String content) {
+    public Post(int id, int userId, int idComment, String timePost, int likeCount, String accessModifier, String img, String content, model.User user) {
+        this.id = id;
+        this.userId = userId;
+        this.idComment = idComment;
+        this.timePost = timePost;
+        this.likeCount = likeCount;
+        this.accessModifier = accessModifier;
+        this.img = img;
+        this.content = content;
+        User = user;
+    }
+
+    public Post(int id, int userId, int idComment, String timePost, int likeCount, String accessModifier, String img, String content) {
+        this.id = id;
+        this.userId = userId;
+        this.idComment = idComment;
+        this.timePost = timePost;
+        this.likeCount = likeCount;
+        this.accessModifier = accessModifier;
+        this.img = img;
+        this.content = content;
+    }
+
+    public Post(int userId, int idComment, String timePost, int likeCount, String accessModifier, String img, String content) {
         this.userId = userId;
         this.idComment = idComment;
         this.timePost = timePost;
@@ -28,6 +52,14 @@ public class Post {
         this.timePost = timePost;
         this.img = img;
         this.content = content;
+    }
+
+    public model.User getUser() {
+        return User;
+    }
+
+    public void setUser(model.User user) {
+        User = user;
     }
 
     public int getId() {

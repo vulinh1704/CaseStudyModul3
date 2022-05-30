@@ -12,5 +12,6 @@
   </head>
   <body>
   <h1><a href="/users?action=login"> Nhấn vào </a></h1>
+  <img src="uploads/anh gai.jpg" alt="Image Eror" width="50" height="60">
   </body>
 </html>

@@ -48,7 +48,7 @@ public class UserServiceImpl implements Service<User> {
                 user = new User(account, passWord, fullName, dateOfBirth);
             }
         }
-        return null;
+        return user;
     }
 
     @Override

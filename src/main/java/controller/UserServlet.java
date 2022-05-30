@@ -1,6 +1,9 @@
 package controller;
 
+import com.mysql.cj.Session;
+import model.Post;
 import model.User;
+import service.impl.PostServiceImpl;
 import service.impl.UserServiceImpl;
 
 import javax.servlet.*;
@@ -8,10 +11,12 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet(name = "UserServlet", urlPatterns = "/users")
 public class UserServlet extends HttpServlet {
     static UserServiceImpl userService = new UserServiceImpl();
+    PostServiceImpl postService = new PostServiceImpl();
     static int idUser = 0;
 
     @Override
@@ -40,11 +45,16 @@ public class UserServlet extends HttpServlet {
 
     private void showFormRegister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/register.jsp");
+        HttpSession session = request.getSession();
+        List<Post> postList = postService.findAll();
+        session.setAttribute("postList" , postList);
         requestDispatcher.forward(request, response);
     }
 
     private void showFormHomepage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/homepage.jsp");
+        List<Post> postList = postService.findAll();
+        request.setAttribute("postList" , postList);
         requestDispatcher.forward(request, response);
     }
 
@@ -83,7 +93,7 @@ public class UserServlet extends HttpServlet {
         } else {
             session.setAttribute("fullName" , user.getFullName());
             idUser = user.getId();
-            response.sendRedirect("/users?action=homepage&idUser="+idUser);
+            response.sendRedirect("/users?action=homepage&idUser="+ idUser);
         }
     }
 
