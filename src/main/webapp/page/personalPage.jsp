@@ -1252,7 +1252,7 @@
                                     </div>
                                     <img src="../images/resources/profile-image.jpg" alt="">
                                     <ul class="profile-controls">
-                                        <li><a href="#" title="Add friend" data-toggle="tooltip"><i class="fa fa-user-plus"></i></a></li>
+                                        <li><a href="/AddFriendServlet?action=addFriend" title="Add friend" data-toggle="tooltip"><i class="fa fa-user-plus"></i></a></li>
                                         <li><a href="#" title="Follow" data-toggle="tooltip"><i class="fa fa-star"></i></a></li>
                                         <li><a class="send-mesg" href="#" title="Send Message" data-toggle="tooltip"><i class="fa fa-comment"></i></a></li>
                                         <li>

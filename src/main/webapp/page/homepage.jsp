@@ -1556,9 +1556,10 @@
                                         <figure>
                                             <img src="../images/resources/admin.jpg" alt="">
                                         </figure>
-                                        <form method="post" action="${pageContext.request.contextPath}/PostServlet" enctype="multipart/form-data">
+
                                         <div class="newpst-input">
-                                            <textarea rows="2" name="content" placeholder="Share some what you are thinking?"></textarea>
+                                                <textarea rows="2" name="content"
+                                                          placeholder="Share some what you are thinking?"></textarea>
                                         </div>
                                         <div class="attachments">
                                             <ul>
@@ -1573,35 +1574,38 @@
                                                         <input type="file">
                                                     </label>
                                                 </li>
-
-                                                <li>
-                                                    <i class="fa fa-image"></i>
-                                                    <label class="fileContainer">
-                                                        <input type="file" name="file">
-                                                    </label>
-                                                </li>
-
-                                                <li>
-                                                    <i class="fa fa-video-camera"></i>
-                                                    <label class="fileContainer">
-                                                        <input type="file">
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-camera"></i>
-                                                    <label class="fileContainer">
-                                                        <input type="file">
-                                                    </label>
-                                                </li>
-                                                <li class="preview-btn">
-                                                    <button class="post-btn-preview" type="submit" data-ripple="" >
-                                                        Preview
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                            <button class="post-btn" type="submit" data-ripple="" value="Upload">Post</button>
+                                                <form method="post"
+                                                      action="${pageContext.request.contextPath}/PostServlet"
+                                                      enctype="multipart/form-data">
+                                                    <li>
+                                                        <i class="fa fa-image"></i>
+                                                        <label class="fileContainer">
+                                                            <input type="file" name="file">
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fa fa-video-camera"></i>
+                                                        <label class="fileContainer">
+                                                            <input type="file">
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fa fa-camera"></i>
+                                                        <label class="fileContainer">
+                                                            <input type="file">
+                                                        </label>
+                                                    </li>
+                                                    <li class="preview-btn">
+                                                        <button class="post-btn-preview" type="submit" data-ripple="">
+                                                            Preview
+                                                        </button>
+                                                    </li>
+                                            </u l>
+                                            <button class="post-btn" type="submit" data-ripple="" value="Upload">
+                                                Post
+                                            </button>
                                         </div>
-                                    </form>
+                                        </form>
                                         <div class="add-location-post">
                                             <span>Drag map point to selected area</span>
                                             <div class="row">

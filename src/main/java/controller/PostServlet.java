@@ -21,14 +21,13 @@ public class PostServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("upload.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String fileName = "";
+        String fileName = request.getParameter("fileName");;
         for (Part part : request.getParts()) {
-            fileName = extractFileName(part);
-            fileName = new File(fileName).getName();
             part.write(this.getFolderUpload().getAbsolutePath() + File.separator + fileName);
         }
         int idUser = UserServlet.idUser;

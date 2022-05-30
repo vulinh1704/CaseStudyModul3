@@ -102,4 +102,14 @@ public class UserServiceImpl implements Service<User> {
         return user;
     }
 
+    public void addFriends(int idUser1 , int idUser2) {
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("insert into friendship(idUser1,idUser2) values (?,?)");) {
+            preparedStatement.setInt(1, idUser1);
+            preparedStatement.setInt(2, idUser2);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

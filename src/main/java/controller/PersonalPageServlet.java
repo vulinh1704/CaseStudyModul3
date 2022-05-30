@@ -12,6 +12,7 @@ import java.sql.SQLException;
 @WebServlet(name = "PersonalPageServlet", value = "/PersonalPageServlet")
 public class PersonalPageServlet extends HttpServlet {
     UserServiceImpl userService = new UserServiceImpl();
+    static User userSearch = null;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -21,10 +22,9 @@ public class PersonalPageServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String account = request.getParameter("account");
-        User user = null;
         try {
-            user = userService.findByName(account);
-            session.setAttribute("fullNameSearch" , user.getFullName());
+            userSearch = userService.findByName(account);
+            session.setAttribute("fullNameSearch" , userSearch.getFullName());
             response.sendRedirect("page/personalPage.jsp");
         } catch (SQLException e) {
             e.printStackTrace();
