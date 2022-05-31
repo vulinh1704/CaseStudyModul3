@@ -57,9 +57,9 @@
                             <form class="we-form" method="post">
                                 <input type="text" name="account" placeholder="Account" id="a" pattern="[a-z]{1,15}[1-9]+" title="Enter at least 1 letter 1 number">
                                 <input type="password" name="passWord" placeholder="PassWord" id="p" pattern="([a-z]{1,15}|[1-9]+){6,50}" title="Enter at least 6 characters">
-                                <input type="text" name="fullName" placeholder="Full Name" id="fn" pattern="[a-z]{1,100}" title="Enter at least 1 characters">
+                                <input type="text" name="fullName" placeholder="Full Name" id="fn" pattern="*" title="Enter at least 1 characters">
                                 <input type="date" name="dateOfBirth" placeholder="Date Of Birth">
-                                <button type="submit" data-ripple="">sign in</button>
+                                <button type="submit" data-ripple="">sign up</button>
                                 <a class="forgot underline" href="#" title="">forgot password?</a>
                             </form>
                             <a data-ripple="" title="" href="#" class="with-smedia facebook"><i

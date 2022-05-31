@@ -107,7 +107,7 @@ public class UserServlet extends HttpServlet {
         String fullName = request.getParameter("fullName");
         String dateOfBirth = request.getParameter("dateOfBirth");
         userService.add(new User(account, passWord, fullName, dateOfBirth));
-
+        response.sendRedirect("/users?action=login");
     }
 
 
