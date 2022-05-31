@@ -20,8 +20,8 @@ public class RespondFriendServlet extends HttpServlet {
         }
         switch (action){
             case "addF":
-//                int idUser1 = Integer.parseInt(request.getParameter("idUser1"));
-                userService.addFriend(UserServlet.idUser);
+                int id = Integer.parseInt(request.getParameter("id"));
+                userService.addFriend(UserServlet.idUser , id);
                 response.sendRedirect("/users?action=homepage&idUser="+ UserServlet.idUser);
                 break;
         }

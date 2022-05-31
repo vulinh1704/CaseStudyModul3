@@ -276,7 +276,7 @@
                     </a>
                     <div class="dropdowns">
                         <span>${countRequest} New Requests <a href="#" title="">View all Requests</a></span>
-                        <c:forEach var="user" items="${userListRequest}">
+                        <c:forEach var="user" items="${userListRequest.entrySet()}">
                             <ul class="drops-menu">
                             <li>
                                 <div>
@@ -284,11 +284,11 @@
                                         <img src="../images/resources/thumb-2.jpg" alt="">
                                     </figure>
                                     <div class="mesg-meta">
-                                        <h6><a href="#" title="">${user.getFullName()}</a></h6>
-                                        <span><b>${user.getFullName()}</b> is mutule friend</span>
+                                        <h6><a href="#" title="">${user.getValue().getFullName()}</a></h6>
+                                        <span><b>${user.getValue().getFullName()}</b> is mutule friend</span>
                                     </div>
                                     <div class="add-del-friends">
-                                        <a href="/RespondFriendServlet?action=addF" title=""><i class="fa fa-heart"></i></a>
+                                        <a href="/RespondFriendServlet?action=addF&id=${user.getKey()}" title=""><i class="fa fa-heart"></i></a>
                                         <a href="/RespondFriendServlet?action=delF" title=""><i class="fa fa-trash"></i></a>
                                     </div>
                                 </div>
@@ -756,7 +756,7 @@
                     <span class="seting-title">User setting <a href="#" title="">see all</a></span>
                     <ul class="log-out">
                         <li><a href="page/personalPage.jsp" title=""><i class="ti-user"></i> view profile</a></li>
-                        <li><a href="..x/pitnik-MXH/logout.html" title=""><i class="ti-power-off"></i>log out</a></li>
+                        <li><a href="/users?action=logout" title=""><i class="ti-power-off"></i>log out</a></li>
                     </ul>
                 </div>
             </div>

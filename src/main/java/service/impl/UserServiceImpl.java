@@ -1,11 +1,14 @@
 package service.impl;
 
+import model.FriendShip;
 import model.User;
 import service.Service;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserServiceImpl implements Service<User> {
     public static int countRequest = 0;
@@ -114,8 +117,9 @@ public class UserServiceImpl implements Service<User> {
         }
     }
 
-    public List<User> requestList(int idUser2) {
-        List<User> userList = new ArrayList<>();
+    public Map<Integer , User> requestList(int idUser2) {
+//        List<User> userList = new ArrayList<>();
+        Map<Integer , User> userList = new HashMap<>();
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("select * from friendship where idUser2 = ? and status = 0");) {
             preparedStatement.setInt(1, idUser2);
@@ -125,8 +129,9 @@ public class UserServiceImpl implements Service<User> {
             while (rs.next()) {
                 countRequest++;
                 id = rs.getInt("id");
+                int idUser1 = rs.getInt("idUser1");
                 idUser2 = rs.getInt("idUser2");
-                userList.add(findById(idUser2));
+                userList.put(id , findById(idUser1));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -148,7 +153,7 @@ public class UserServiceImpl implements Service<User> {
                 id = rs.getInt("id");
                 int id1 = rs.getInt("idUser1");
                 int id2 = rs.getInt("idUser2");
-                userList.add(findById((idUser == id1) ? id1 : id2));
+                userList.add(findById((idUser == id1) ? id2 : id1));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -156,10 +161,10 @@ public class UserServiceImpl implements Service<User> {
         return userList;
     }
 
-    public void addFriend(int idUser2) {
+    public void addFriend(int idUser2 , int id) {
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("update friendship set status = 1 where idUser1 = ? or idUser2 = ?");) {
-            preparedStatement.setInt(1, idUser2);
+             PreparedStatement preparedStatement = connection.prepareStatement("update friendship set status = 1 where id = ? and idUser2 = ?");) {
+            preparedStatement.setInt(1, id);
             preparedStatement.setInt(2, idUser2);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

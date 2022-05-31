@@ -12,6 +12,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "UserServlet", urlPatterns = "/users")
 public class UserServlet extends HttpServlet {
@@ -32,9 +33,16 @@ public class UserServlet extends HttpServlet {
             case "homepage":
                 showFormHomepage(request,response);
                 break;
+//            case "logout":
+//                showFormLogin(request,response);
+//                break;
             default:
                 showFormLogin(request , response);
         }
+    }
+
+    private void showFormLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.sendRedirect("user/login.jsp");
     }
 
 
@@ -55,7 +63,7 @@ public class UserServlet extends HttpServlet {
         HttpSession session = request.getSession();
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/homepage.jsp");
         List<Post> postList = postService.findAll();
-        List<User> userListRequest = userService.requestList(idUser);
+        Map<Integer, User> userListRequest = userService.requestList(idUser);
         session.setAttribute("userListRequest" , userListRequest);
         session.setAttribute("postList" , postList);
         session.setAttribute("countRequest" ,  UserServiceImpl.countRequest);

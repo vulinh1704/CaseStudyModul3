@@ -15,11 +15,11 @@ public class FriendsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/friendsPage.jsp");
-        requestDispatcher.forward(request,response);
         int userId = Integer.parseInt(request.getParameter("userId"));
         List<User> users = userService.friendList(userId);
         session.setAttribute("listFriend" , users);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/friendsPage.jsp");
+        requestDispatcher.forward(request,response);
     }
 
     @Override
