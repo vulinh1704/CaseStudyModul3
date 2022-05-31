@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class Post {
     private int id;
     private int userId;
@@ -10,6 +12,20 @@ public class Post {
     private String img;
     private String content;
     private User User;
+    private List<Comment> comments;
+
+    public Post(int id, int userId, int idComment, String timePost, int likeCount, String accessModifier, String img, String content, model.User user, List<Comment> comments) {
+        this.id = id;
+        this.userId = userId;
+        this.idComment = idComment;
+        this.timePost = timePost;
+        this.likeCount = likeCount;
+        this.accessModifier = accessModifier;
+        this.img = img;
+        this.content = content;
+        User = user;
+        this.comments = comments;
+    }
 
     public Post() {
     }
@@ -131,5 +147,13 @@ public class Post {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }
