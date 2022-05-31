@@ -1,8 +1,17 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+            crossorigin="anonymous"></script>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=""/>
@@ -756,7 +765,7 @@
                     <span class="seting-title">User setting <a href="#" title="">see all</a></span>
                     <ul class="log-out">
                         <li><a href="page/personalPage.jsp" title=""><i class="ti-user"></i> view profile</a></li>
-                        <li><a href="/users?action=logout" title=""><i class="ti-power-off"></i>log out</a></li>
+                        <li><a href=/users?action=login" title=""><i class="ti-power-off"></i>log out</a></li>
                     </ul>
                 </div>
             </div>
@@ -1729,11 +1738,44 @@
                                                     <div class="more">
                                                         <div class="more-post-optns"><i class="ti-more-alt"></i>
                                                             <ul>
-                                                                <li><i class="fa fa-pencil-square-o"></i>Edit Post</li>
-                                                                <li><i class="fa fa-trash-o"></i>Delete Post</li>
+                                                                <li><i class="fa fa-pencil-square-o"></i><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                                                    Edit___Post
+                                                                </button></li>
+                                                                <li><i class="fa fa-trash-o"></i><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                                                    Delete_Post
+                                                                </button></li>
                                                             </ul>
                                                         </div>
                                                     </div>
+
+                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form method="post" action="${pageContext.request.contextPath}/PostServlet" enctype="multipart/form-data">
+                                                                        <div class="newpst-input">
+                                                                            <input type="hidden" id="fileName" name="fileName">
+                                                                            <input type="file" id="file" name="file" style="display: none">
+                                                                                <%--                                                    <input type="text" name="content" >--%>
+                                                                            <textarea rows="2" name="content" placeholder="Edit Post"></textarea>
+                                                                        </div>
+                                                                        <button class="post-btn" type="submit" data-ripple="" value="Upload">Post</button>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                     <ins><a href="time-line.html" title="">${post.getUser().getFullName()}</a>
                                                     </ins>
                                                     <span><i class="fa fa-globe"></i>${post.getTimePost()}</span>
@@ -2443,6 +2485,7 @@
             </div>
         </div>
     </div>
+
 </div><!-- The Scrolling Modal image with comment -->
 
 <script src="../js/main.min.js"></script>

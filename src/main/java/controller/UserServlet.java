@@ -33,6 +33,8 @@ public class UserServlet extends HttpServlet {
             case "homepage":
                 showFormHomepage(request,response);
                 break;
+            case "login":
+                showFormLogin(request,response);
 //            case "logout":
 //                showFormLogin(request,response);
 //                break;
@@ -101,7 +103,7 @@ public class UserServlet extends HttpServlet {
         String passWord = request.getParameter("passWord");
         User user = userService.findByNameAndPass(account , passWord);
         if(user == null){
-            response.sendRedirect("user/login.jsp");
+            response.sendRedirect("/users?action=login");
         } else {
             session.setAttribute("fullName" , user.getFullName());
             idUser = user.getId();
