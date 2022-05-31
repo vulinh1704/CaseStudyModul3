@@ -100,9 +100,9 @@
                         <li><a href="../pitnik-MXH/timeline-photos.html" title="">Timeline Photos</a></li>
                         <li><a href="../pitnik-MXH/timeline-videos.html" title="">Timeline Videos</a></li>
                         <li><a href="../pitnik-MXH/timeline-groups.html" title="">Timeline Groups</a></li>
-                        <li><a href="../timeline-friends.html" title="">Timeline Friends</a></li>
+                        <li><a href="../pitnik-MXH/timeline-friends.html" title="">Timeline Friends</a></li>
                         <li><a href="../pitnik-MXH/timeline-friends2.html" title="">Timeline Friends-2</a></li>
-                        <li><a href="../about.html" title="">Timeline About</a></li>
+                        <li><a href="../pitnik-MXH/about.html" title="">Timeline About</a></li>
                         <li><a href="../pitnik-MXH/blog-posts.html" title="">Timeline Blog</a></li>
                         <li><a href="../pitnik-MXH/friends-birthday.html" title="">Friends' Birthday</a></li>
                         <li><a href="../pitnik-MXH/newsfeed.html" title="">Newsfeed</a></li>
@@ -759,7 +759,7 @@
                 </li>
             </ul>
             <div class="user-img">
-                <h5>${fullNameSearch}</h5>
+                <h5>${userSearch.getFullName()}</h5>
                 <img src="../images/resources/admin.jpg" alt="">
                 <span class="status f-online"></span>
                 <div class="user-setting">
@@ -771,7 +771,7 @@
                     </ul>
                     <span class="seting-title">User setting <a href="#" title="">see all</a></span>
                     <ul class="log-out">
-                        <li><a href="../about.html" title=""><i class="ti-user"></i> view profile</a></li>
+                        <li><a href="../pitnik-MXH/about.html" title=""><i class="ti-user"></i> view profile</a></li>
                         <li><a href="../setting.html" title=""><i class="ti-pencil-alt"></i>edit profile</a></li>
                         <li><a href="#" title=""><i class="ti-target"></i>activity log</a></li>
                         <li><a href="../setting.html" title=""><i class="ti-settings"></i>account setting</a></li>
@@ -832,9 +832,9 @@
                         <li><a href="../pitnik-MXH/timeline-photos.html" title="">Timeline Photos</a></li>
                         <li><a href="../pitnik-MXH/timeline-videos.html" title="">Timeline Videos</a></li>
                         <li><a href="../pitnik-MXH/timeline-groups.html" title="">Timeline Groups</a></li>
-                        <li><a href="../timeline-friends.html" title="">Timeline Friends</a></li>
+                        <li><a href="../pitnik-MXH/timeline-friends.html" title="">Timeline Friends</a></li>
                         <li><a href="../pitnik-MXH/timeline-friends2.html" title="">Timeline Friends-2</a></li>
-                        <li><a href="../about.html" title="">Timeline About</a></li>
+                        <li><a href="../pitnik-MXH/about.html" title="">Timeline About</a></li>
                         <li><a href="../pitnik-MXH/blog-posts.html" title="">Timeline Blog</a></li>
                         <li><a href="../pitnik-MXH/friends-birthday.html" title="">Friends' Birthday</a></li>
                         <li><a href="../pitnik-MXH/newsfeed.html" title="">Newsfeed</a></li>
@@ -1070,7 +1070,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../timeline-friends.html" title="Friends" data-toggle="tooltip" data-placement="right">
+                    <a href="../pitnik-MXH/timeline-friends.html" title="Friends" data-toggle="tooltip" data-placement="right">
                         <i class="ti-user"></i>
                     </a>
                 </li>
@@ -1161,9 +1161,9 @@
                         <li><a href="../pitnik-MXH/timeline-photos.html" title="">Timeline Photos</a></li>
                         <li><a href="../pitnik-MXH/timeline-videos.html" title="">Timeline Videos</a></li>
                         <li><a href="../pitnik-MXH/timeline-groups.html" title="">Timeline Groups</a></li>
-                        <li><a href="../timeline-friends.html" title="">Timeline Friends</a></li>
+                        <li><a href="../pitnik-MXH/timeline-friends.html" title="">Timeline Friends</a></li>
                         <li><a href="../pitnik-MXH/timeline-friends2.html" title="">Timeline Friends-2</a></li>
-                        <li><a href="../about.html" title="">Timeline About</a></li>
+                        <li><a href="../pitnik-MXH/about.html" title="">Timeline About</a></li>
                         <li><a href="../pitnik-MXH/blog-posts.html" title="">Timeline Blog</a></li>
                         <li><a href="../pitnik-MXH/friends-birthday.html" title="">Friends' Birthday</a></li>
                         <li><a href="../pitnik-MXH/newsfeed.html" title="">Newsfeed</a></li>
@@ -1252,7 +1252,7 @@
                                     </div>
                                     <img src="../images/resources/profile-image.jpg" alt="">
                                     <ul class="profile-controls">
-                                        <li><a href="/AddFriendServlet?action=addFriend" title="Add friend" data-toggle="tooltip"><i class="fa fa-user-plus"></i></a></li>
+                                        <li><a href="/FriendRequestServlet?action=addFriend" title="Add friend" data-toggle="tooltip"><i class="fa fa-user-plus"></i></a></li>
                                         <li><a href="#" title="Follow" data-toggle="tooltip"><i class="fa fa-star"></i></a></li>
                                         <li><a class="send-mesg" href="#" title="Send Message" data-toggle="tooltip"><i class="fa fa-comment"></i></a></li>
                                         <li>
@@ -1293,7 +1293,7 @@
                                                 </div>
 
                                                 <div class="author-content">
-                                                    <a class="h4 author-name" href="../about.html">${fullNameSearch}</a>
+                                                    <a class="h4 author-name" href="../pitnik-MXH/about.html">${userSearch.getFullName()}</a>
                                                     <div class="country">Ontario, CA</div>
                                                 </div>
                                             </div>
@@ -1301,32 +1301,10 @@
                                         <div class="col-lg-10 col-md-9">
                                             <ul class="profile-menu">
                                                 <li>
-                                                    <a class="" href="../pitnik-MXH/timeline.html">Timeline</a>
+                                                    <a class="active" href="/PersonalPageServlet">About</a>
                                                 </li>
                                                 <li>
-                                                    <a class="active" href="../about.html">About</a>
-                                                </li>
-                                                <li>
-                                                    <a class="" href="../timeline-friends.html">Friends</a>
-                                                </li>
-                                                <li>
-                                                    <a class="" href="../pitnik-MXH/timeline-photos.html">Photos</a>
-                                                </li>
-                                                <li>
-                                                    <a class="" href="../pitnik-MXH/timeline-videos.html">Videos</a>
-                                                </li>
-                                                <li>
-                                                    <div class="more">
-                                                        <i class="fa fa-ellipsis-h"></i>
-                                                        <ul class="more-dropdown">
-                                                            <li>
-                                                                <a href="../pitnik-MXH/timeline-groups.html">Profile Groups</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="../pitnik-MXH/statistics.html">Profile Analytics</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                    <a class="" href="/friends?userId=${userSearch.getId()}">Friends</a>
                                                 </li>
                                             </ul>
                                             <ol class="folw-detail">

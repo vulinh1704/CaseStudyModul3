@@ -12,10 +12,22 @@ import java.sql.SQLException;
 @WebServlet(name = "PersonalPageServlet", value = "/PersonalPageServlet")
 public class PersonalPageServlet extends HttpServlet {
     UserServiceImpl userService = new UserServiceImpl();
-    static User userSearch = null;
+    public static User userSearch = null;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if(action == null){
+            action = "";
+        }
+        switch (action){
+            default:
+                showAbout(request , response);
+        }
+    }
 
+    private void showAbout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/personalPage.jsp");
+        requestDispatcher.forward(request , response);
     }
 
     @Override
@@ -23,9 +35,10 @@ public class PersonalPageServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String account = request.getParameter("account");
         try {
-            userSearch = userService.findByName(account);
-            session.setAttribute("fullNameSearch" , userSearch.getFullName());
+            userSearch = userService.findByAccount(account);
+            session.setAttribute("userSearch" , userSearch);
             response.sendRedirect("page/personalPage.jsp");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

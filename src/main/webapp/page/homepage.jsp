@@ -107,9 +107,9 @@
                         <li><a href="../pitnik-MXH/timeline-photos.html" title="">Timeline Photos</a></li>
                         <li><a href="../pitnik-MXH/timeline-videos.html" title="">Timeline Videos</a></li>
                         <li><a href="../pitnik-MXH/timeline-groups.html" title="">Timeline Groups</a></li>
-                        <li><a href="../timeline-friends.html" title="">Timeline Friends</a></li>
+                        <li><a href="../pitnik-MXH/timeline-friends.html" title="">Timeline Friends</a></li>
                         <li><a href="../pitnik-MXH/timeline-friends2.html" title="">Timeline Friends-2</a></li>
-                        <li><a href="../about.html" title="">Timeline About</a></li>
+                        <li><a href="../pitnik-MXH/about.html" title="">Timeline About</a></li>
                         <li><a href="../pitnik-MXH/blog-posts.html" title="">Timeline Blog</a></li>
                         <li><a href="../pitnik-MXH/friends-birthday.html" title="">Friends' Birthday</a></li>
                         <li><a href="../pitnik-MXH/newsfeed.html" title="">Newsfeed</a></li>
@@ -272,10 +272,10 @@
                 </li>
                 <li>
                     <a href="#" title="Friend Requests" data-ripple="">
-                        <i class="fa fa-user"></i><em class="bg-red">5</em>
+                        <i class="fa fa-user"></i><em class="bg-red">${countRequest}</em>
                     </a>
                     <div class="dropdowns">
-                        <span>5 New Requests <a href="#" title="">View all Requests</a></span>
+                        <span>${countRequest} New Requests <a href="#" title="">View all Requests</a></span>
                         <c:forEach var="user" items="${userListRequest}">
                             <ul class="drops-menu">
                             <li>
@@ -288,8 +288,8 @@
                                         <span><b>${user.getFullName()}</b> is mutule friend</span>
                                     </div>
                                     <div class="add-del-friends">
-                                        <a href="#" title=""><i class="fa fa-heart"></i></a>
-                                        <a href="#" title=""><i class="fa fa-trash"></i></a>
+                                        <a href="/RespondFriendServlet?action=addF" title=""><i class="fa fa-heart"></i></a>
+                                        <a href="/RespondFriendServlet?action=delF" title=""><i class="fa fa-trash"></i></a>
                                     </div>
                                 </div>
                             </li>
@@ -814,9 +814,9 @@
                         <li><a href="../pitnik-MXH/timeline-photos.html" title="">Timeline Photos</a></li>
                         <li><a href="../pitnik-MXH/timeline-videos.html" title="">Timeline Videos</a></li>
                         <li><a href="../pitnik-MXH/timeline-groups.html" title="">Timeline Groups</a></li>
-                        <li><a href="../timeline-friends.html" title="">Timeline Friends</a></li>
+                        <li><a href="../pitnik-MXH/timeline-friends.html" title="">Timeline Friends</a></li>
                         <li><a href="../pitnik-MXH/timeline-friends2.html" title="">Timeline Friends-2</a></li>
-                        <li><a href="../about.html" title="">Timeline About</a></li>
+                        <li><a href="../pitnik-MXH/about.html" title="">Timeline About</a></li>
                         <li><a href="../pitnik-MXH/blog-posts.html" title="">Timeline Blog</a></li>
                         <li><a href="../pitnik-MXH/friends-birthday.html" title="">Friends' Birthday</a></li>
                         <li><a href="../pitnik-MXH/newsfeed.html" title="">Newsfeed</a></li>
@@ -1056,7 +1056,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../timeline-friends.html" title="Friends" data-toggle="tooltip"
+                    <a href="../pitnik-MXH/timeline-friends.html" title="Friends" data-toggle="tooltip"
                        data-placement="right">
                         <i class="ti-user"></i>
                     </a>
@@ -1157,9 +1157,9 @@
                         <li><a href="../pitnik-MXH/timeline-photos.html" title="">Timeline Photos</a></li>
                         <li><a href="../pitnik-MXH/timeline-videos.html" title="">Timeline Videos</a></li>
                         <li><a href="../pitnik-MXH/timeline-groups.html" title="">Timeline Groups</a></li>
-                        <li><a href="../timeline-friends.html" title="">Timeline Friends</a></li>
+                        <li><a href="../pitnik-MXH/timeline-friends.html" title="">Timeline Friends</a></li>
                         <li><a href="../pitnik-MXH/timeline-friends2.html" title="">Timeline Friends-2</a></li>
-                        <li><a href="../about.html" title="">Timeline About</a></li>
+                        <li><a href="../pitnik-MXH/about.html" title="">Timeline About</a></li>
                         <li><a href="../pitnik-MXH/blog-posts.html" title="">Timeline Blog</a></li>
                         <li><a href="../pitnik-MXH/friends-birthday.html" title="">Friends' Birthday</a></li>
                         <li><a href="../pitnik-MXH/newsfeed.html" title="">Newsfeed</a></li>
@@ -1383,7 +1383,7 @@
                                             </li>
                                             <li>
                                                 <i class="ti-user"></i>
-                                                <a href="../timeline-friends.html" title="">friends</a>
+                                                <a href="../pitnik-MXH/timeline-friends.html" title="">friends</a>
                                             </li>
                                             <li>
                                                 <i class="ti-image"></i>
@@ -1827,25 +1827,6 @@
 
                                                         </li>
                                                         <li>
-                                                            <div class="comet-avatar">
-                                                                <img src="../images/resources/comet-4.jpg" alt="">
-                                                            </div>
-                                                            <div class="we-comment">
-                                                                <h5><a href="time-line.html" title="">Sophia</a></h5>
-                                                                <p>we are working for the dance and sing songs. this
-                                                                    video is very awesome for the youngster.
-                                                                    <i class="em em-smiley"></i>
-                                                                </p>
-                                                                <div class="inline-itms">
-                                                                    <span>1 year ago</span>
-                                                                    <a class="we-reply" href="#" title="Reply"><i
-                                                                            class="fa fa-reply"></i></a>
-                                                                    <a href="#" title=""><i
-                                                                            class="fa fa-heart"></i><span>20</span></a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
                                                             <a href="#" title="" class="showmore underline">more
                                                                 comments+</a>
                                                         </li>
@@ -1854,7 +1835,7 @@
                                                                 <img src="../images/resources/nearly1.jpg" alt="">
                                                             </div>
                                                             <div class="post-comt-box">
-                                                                <form method="post">
+                                                                <form method="post" >
                                                                     <textarea
                                                                             placeholder="Post your comment"></textarea>
                                                                     <div class="add-smiles">
@@ -1881,7 +1862,6 @@
                                                                             <i class="em em-stuck_out_tongue"></i>
                                                                         </div>
                                                                     </div>
-
                                                                     <button type="submit"></button>
                                                                 </form>
                                                             </div>

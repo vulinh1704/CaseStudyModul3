@@ -17,7 +17,7 @@ import java.util.List;
 public class UserServlet extends HttpServlet {
     static UserServiceImpl userService = new UserServiceImpl();
     PostServiceImpl postService = new PostServiceImpl();
-    static int idUser = 0;
+    public static int idUser = 0;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -58,6 +58,7 @@ public class UserServlet extends HttpServlet {
         List<User> userListRequest = userService.requestList(idUser);
         session.setAttribute("userListRequest" , userListRequest);
         session.setAttribute("postList" , postList);
+        session.setAttribute("countRequest" ,  UserServiceImpl.countRequest);
         requestDispatcher.forward(request, response);
     }
 
