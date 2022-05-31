@@ -150,7 +150,7 @@
                 </li>
                 <li><span>Account Setting</span>
                     <ul>
-                        <li><a href="../setting.html" title="">Setting</a></li>
+                        <li><a href="../pitnik-MXH/setting.html" title="">Setting</a></li>
                         <li><a href="../pitnik-MXH/privacy.html" title="">Privacy</a></li>
                         <li><a href="../pitnik-MXH/support-and-help.html" title="">Support & Help</a></li>
                         <li><a href="../pitnik-MXH/support-and-help-detail.html" title="">Support Detail</a></li>
@@ -857,7 +857,7 @@
                 </li>
                 <li><a class="" href="#" title=""><i class="fa fa-gears"></i> Account Setting</a>
                     <ul>
-                        <li><a href="../setting.html" title="">Setting</a></li>
+                        <li><a href="../pitnik-MXH/setting.html" title="">Setting</a></li>
                         <li><a href="../pitnik-MXH/privacy.html" title="">Privacy</a></li>
                         <li><a href="../pitnik-MXH/support-and-help.html" title="">Support & Help</a></li>
                         <li><a href="../pitnik-MXH/support-and-help-detail.html" title="">Support Detail</a></li>
@@ -1203,7 +1203,7 @@
                 <li class="menu-item-has-children"><a class="" href="#" title=""><i class="fa fa-gears"></i>Account
                     Setting</a>
                     <ul class="submenu">
-                        <li><a href="../setting.html" title="">Setting</a></li>
+                        <li><a href="../pitnik-MXH/setting.html" title="">Setting</a></li>
                         <li><a href="../pitnik-MXH/privacy.html" title="">Privacy</a></li>
                         <li><a href="../pitnik-MXH/support-and-help.html" title="">Support & Help</a></li>
                         <li><a href="../pitnik-MXH/support-and-help-detail.html" title="">Support Detail</a></li>

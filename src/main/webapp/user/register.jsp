@@ -55,9 +55,9 @@
                                 <span>Sign Up now and meet the awesome friends around the world.</span>
                             </div>
                             <form class="we-form" method="post">
-                                <input type="text" name="account" placeholder="Account" id="a" pattern="[a-z]{1,15}[1-9]+" title="Enter at least 1 letter 1 number">
+                                <input type="text" name="account" placeholder="Account" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
                                 <input type="password" name="passWord" placeholder="PassWord" id="p" pattern="([a-z]{1,15}|[1-9]+){6,50}" title="Enter at least 6 characters">
-                                <input type="text" name="fullName" placeholder="Full Name" id="fn" pattern="*" title="Enter at least 1 characters">
+                                <input type="text" name="fullName" placeholder="Full Name" id="fn" pattern=".*" title="Enter at least 1 characters">
                                 <input type="date" name="dateOfBirth" placeholder="Date Of Birth">
                                 <button type="submit" data-ripple="">sign up</button>
                                 <a class="forgot underline" href="#" title="">forgot password?</a>
@@ -70,7 +70,7 @@
                                     class="fa fa-ixnstagram"></i></a>
                             <a data-ripple="" title="" href="#" class="with-smedia google"><i
                                     class="fa fa-google-plus"></i></a>
-                            <span>already have an account? <a class="we-account underline" href="#" title="">Sign in</a></span>
+                            <span>already have an account? <a class="we-account underline" href="/users?action=login" title="">Sign in</a></span>
                         </div>
                     </div>
 
